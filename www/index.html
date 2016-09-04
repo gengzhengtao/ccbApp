@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+<!--
+    Licensed to the Apache Software Foundation (ASF) under one
+    or more contributor license agreements.  See the NOTICE file
+    distributed with this work for additional information
+    regarding copyright ownership.  The ASF licenses this file
+    to you under the Apache License, Version 2.0 (the
+    "License"); you may not use this file except in compliance
+    with the License.  You may obtain a copy of the License at
+
+    http://www.apache.org/licenses/LICENSE-2.0
+
+    Unless required by applicable law or agreed to in writing,
+    software distributed under the License is distributed on an
+    "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY
+     KIND, either express or implied.  See the License for the
+    specific language governing permissions and limitations
+    under the License.
+-->
+<html xmlns="http://www.w3.org/1999/html">
+    <head>
+        <!--
+        Customize this policy to fit your own app's needs. For more guidance, see:
+            https://gitjQuery("#itemDescA").val()hub.com/apache/cordova-plugin-whitelist/blob/master/README.md#content-security-policy
+        Some notes:
+            * gap: is required only on iOS (when using UIWebView) and is needed for JS->native communication
+            * https://ssljQuery("#itemDescA").val().gstatic.com is required only on Android and is needed for TalkBack to function properly
+            * Disables use of inline scripts in order to mitigate risk of XSS vulnerabilities. To change this:
+                * Enable inline JS: add 'unsafe-inline' to default-src
+        -->
+        <meta charset="utf-8">
+        <meta http-equiv="Content-Security-Policy" content="default-src 'self' data: gap: https://ssl.gstatic.com 'unsafe-eval'; style-src 'self' 'unsafe-inline'; media-src *">
+        <meta name="format-detection" content="telephone=no">
+        <meta name="msapplication-tap-highlight" content="no">
+        <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width">
+
+        <!-- 引入 jQuery Mobile 样式 -->
+        <link rel="stylesheet" href="css/jquery.mobile-1.4.5.min.css">
+
+
+        <!--IOS Icon-->
+
+        <link rel="apple-touch-icon" href="img/ccb-logo.png" />
+        <link rel="apple-touch-icon" sizes="72x72" href="img/ccb-logo.png" />
+        <link rel="apple-touch-icon" sizes="114x114" href="img/ccb-logo.png" />
+        <style rel="stylesheet">
+            [data-role=page]{height: 100% !important; position:relative !important;}
+            [data-role=footer]{bottom:0; position:fixed !important; top: auto !important;width: 100%}
+
+            .custom-navbar ul li a.ui-btn-active {
+                background: linear-gradient(#5393C5, #6FACD5) repeat scroll 0 0 #5393C5 !important;
+                background: #67497a; /* Old browsers */
+                background: linear-gradient(#5393C5, #6FACD5) repeat scroll 0 0 #5393C5 !important; /* FF3.6+ */
+                background: -webkit-linear-gradient(#5393C5, #6FACD5) repeat scroll 0 0 #5393C5 !important; /* Chrome10+,Safari5.1+ */
+                background: -o-linear-gradient(#5393C5, #6FACD5) repeat scroll 0 0 #5393C5 !important; /* Opera 11.10+ */
+                background: -ms-linear-gradient(#5393C5, #6FACD5) repeat scroll 0 0 #5393C5 !important; /* IE10+ */
+                filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#5393C5', endColorstr='#6FACD5',GradientType=0 ); /* IE6-9 */
+            }
+
+
+            .ui-input-btn {
+                color: #ffffff;
+            }
+
+
+            .ui-input-btn input {
+                position: absolute;
+                top: 0;
+                left: 0;
+                width: 100%;
+                height: 100%;
+                padding: 0;
+                border: 0;
+                outline: 0;
+                color: #fff;
+                -webkit-border-radius: inherit;
+                border-radius: inherit;
+                -webkit-appearance: none;
+                -moz-appearance: none;
+                cursor: pointer;
+                background: #176AAF;
+                background: rgba(23,106,175,1);
+                filter: Alpha(Opacity=0);
+                opacity: .8;
+                font-size: 1px;
+                text-indent: -9999px;
+                z-index: 2;
+
+            }
+
+
+
+        </style>
+        <!-- 引入 jQuery 库 -->
+        <script src="js/jquery-1.11.1.min.js"></script>
+
+        <!-- 引入 jQuery Mobile 库 -->
+        <script src="js/jquery.mobile-1.4.5.min.js"></script>
+
+        <title>供应商报价比对计算器</title>
+    </head>
+    <body>
+
+    <div data-role="page" id="pageone">
+        <div data-role="header">
+            <h1><img src="img/ccb-logo.png" style="width: 1.5em;height: 1.5em; vertical-align:text-top;"/>&nbsp;供应商报价比对</h1>
+            <div data-role="navbar" class="custom-navbar">
+                <ul>
+                    <li><a  href="#pageone" data-transition="none" class="ui-btn-active" id="pageoneA">供应商A</a></li>
+                    <li><a  href="#pagetwo" data-transition="none" data-direction="reverse" id="pageoneB">供应商B</a></li>
+                </ul>
+            </div>
+        </div>
+            <div data-role="main" class="ui-content">
+                <form method="post" action="#">
+                    <div class="ui-field-contain">
+                        <label for="itemDescA">采购行为说明：</label>
+                        <select required id="itemDescA">
+                            <option value="clean">请选择</option>
+                            <option value=0>可进项抵扣</option>
+                            <option value=1>进项转出</option>
+                            <option value=2>视同销售</option>
+                        </select>
+                        <!--<label for="supplierA" >供应商:</label>-->
+                        <!--<input type="text" required="true" value="供应商A" id="supplierA" disabled >-->
+                        <label for="taxTypeA" >提供发票性质:</label>
+                        <select class="form-control"  required id="taxTypeA">
+                            <option value="clean">请选择</option>
+                            <option value=0>专用发票</option>
+                            <option value=1>普通发票</option>
+                        </select>
+
+                        <label for="isTaxA" >报价是否含税:</label>
+                        <select class="form-control"  required id="isTaxA">
+                            <option value="clean">请选择</option>
+                            <option value=0>是</option>
+                            <option value=1>否</option>
+                        </select>
+                        <label for="taxA" >税率:</label>
+                        <select class="form-control" required id="taxA">
+                            <option value="clean">请选择</option>
+                            <option value=0>0%</option>
+                            <option value=3>3%</option>
+                            <option value=5>5%</option>
+                            <option value=6>6%</option>
+                            <option value=11>11%</option>
+                            <option value=13>13%</option>
+                            <option value=17>17%</option>
+                        </select>
+                        <label for="priceA" >报价:</label>
+                        <input type="text" id="priceA" placeholder="请输入" required="true">
+                        <br>
+                        <input type="button" id="calcone" value="计算" disabled="disabled"/>
+                    </div>
+                </form>
+
+        </div>
+
+        <div data-role="footer">
+            <h1>建设银行版权所有</h1>
+        </div>
+    </div>
+
+    <div data-role="page" id="pagetwo">
+        <div data-role="header">
+        <h1><img src="img/ccb-logo.png" style="width: 1.5em;height: 1.5em;vertical-align:middle;"/>&nbsp;供应商报价比对</h1>
+        <div data-role="navbar" class="custom-navbar">
+            <ul>
+                <li><a  href="#pageone" data-transition="none" id="pagetwoA">供应商A</a></li>
+                <li><a  href="#pagetwo" data-transition="none" id="pagetwoB" class="ui-btn-active" data-direction="reverse">供应商B</a></li>
+            </ul>
+        </div>
+        </div>
+        <div data-role="main" class="ui-content">
+            <form method="post" action="#">
+                <div class="ui-field-contain">
+                    <label for="itemDescB">采购行为说明：</label>
+                    <select required id="itemDescB">
+                        <option value="clean">请选择</option>
+                        <option value=0>可进项抵扣</option>
+                        <option value=1>进项转出</option>
+                        <option value=2>视同销售</option>
+                    </select>
+                    <!--<label for="supplierB" >供应商:</label>-->
+                    <!--<input type="text" required="true" value="供应商B" id="supplierB" disabled >-->
+                    <label for="taxTypeA" >提供发票性质:</label>
+                    <select class="form-control"  required id="taxTypeB">
+                        <option value="clean">请选择</option>
+                        <option value=0>专用发票</option>
+                        <option value=1>普通发票</option>
+                    </select>
+
+                    <label for="isTaxA" >报价是否含税:</label>
+                    <select class="form-control"  required id="isTaxB">
+                        <option value="clean">请选择</option>
+                        <option value=0>是</option>
+                        <option value=1>否</option>
+                    </select>
+                    <label for="taxA" >税率:</label>
+                    <select class="form-control" required id="taxB">
+                        <option value="clean">请选择</option>
+                        <option value=0>0%</option>
+                        <option value=3>3%</option>
+                        <option value=5>5%</option>
+                        <option value=6>6%</option>
+                        <option value=11>11%</option>
+                        <option value=13>13%</option>
+                        <option value=17>17%</option>
+                    </select>
+                    <label for="priceA" >报价:</label>
+                    <input type="text" id="priceB" placeholder="请输入" required="true">
+                    <br>
+                    <input type="button" id="calctwo" value="计算" disabled="disabled"/>
+                </div>
+            </form>
+            <!--<a href="#pageone" data-transition="fade" data-direction="reverse">淡入第一个页面(reversed)</a>-->
+            <!--<a href="#pageresult" data-transition="fade">淡入第三个页面(reversed)</a>-->
+        </div>
+
+        <div data-role="footer">
+            <h1>建设银行版权所有</h1>
+        </div>
+    </div>
+
+
+    <div data-role="page" id="pageresult">
+        <div data-role="header">
+            <h1><img src="img/ccb-logo.png" style="width: 1.5em;height: 1.5em;vertical-align:middle;"/>&nbsp;供应商报价比对</h1>
+        </div>
+
+        <div data-role="main" class="ui-content">
+                <div class="ui-field-contain">
+
+                    <label for="supplier" >应选择供应商:</label>
+                    <input type="text" id="supplier" placeholder="供应商" readonly >
+                    <label for="supplierPrice" >对应报价:</label>
+                    <input type="text" id="supplierPrice" placeholder="对应报价" readonly >
+                    <label for="otherPriceTax" >另一供应商报价至少应降至--含税报价:</label>
+                    <input type="text" id="otherPriceTax" placeholder="对应报价" readonly >
+                    <label for="otherPrice" >另一供应商报价至少应降至--不含税报价:</label>
+                    <input type="text" id="otherPrice" placeholder="对应报价" readonly >
+                </div>
+            <!--<a href="#pageone" data-transition="slide" data-direction="reverse">淡入第一个页面(reversed)</a>-->
+
+            <a href="#pageone" data-icon="back" data-iconpos="notext" class="ui-link ui-btn-left ui-btn ui-icon-back ui-btn-icon-notext ui-shadow ui-corner-all" data-role="button" role="button">Refresh</a>
+        </div>
+
+        <div data-role="footer">
+            <h1>建设银行版权所有</h1>
+        </div>
+    </div>
+
+    <script src="js/calc.js"></script>
+    </body>
+</html>
