@@ -58,6 +58,17 @@
             }
 
 
+             .custom-navbar ul li a.ui-btn-active-b {
+                background: linear-gradient(#5393C5, #6FACD5) repeat scroll 0 0 #5393C5 !important;
+                background: #67497a; /* Old browsers */
+                background: linear-gradient(#5393C5, #6FACD5) repeat scroll 0 0 #5393C5 !important; /* FF3.6+ */
+                background: -webkit-linear-gradient(#5393C5, #6FACD5) repeat scroll 0 0 #5393C5 !important; /* Chrome10+,Safari5.1+ */
+                background: -o-linear-gradient(#5393C5, #6FACD5) repeat scroll 0 0 #5393C5 !important; /* Opera 11.10+ */
+                background: -ms-linear-gradient(#5393C5, #6FACD5) repeat scroll 0 0 #5393C5 !important; /* IE10+ */
+                filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#5393C5', endColorstr='#6FACD5',GradientType=0 ); /* IE6-9 */
+            }
+
+
             .ui-input-btn {
                 color: #ffffff;
             }
@@ -106,7 +117,7 @@
             <h1><img src="img/ccb-logo.png" style="width: 1.5em;height: 1.5em; vertical-align:text-top;"/>&nbsp;供应商报价比对</h1>
             <div data-role="navbar" class="custom-navbar">
                 <ul>
-                    <li><a  href="#pageone" data-transition="none" class="ui-btn-active" id="pageoneA">供应商A</a></li>
+                    <li><a  href="#pageone" data-transition="none" class="ui-btn-active ui-btn-active-b" id="pageoneA">供应商A</a></li>
                     <li><a  href="#pagetwo" data-transition="none" data-direction="reverse" id="pageoneB">供应商B</a></li>
                 </ul>
             </div>
@@ -167,7 +178,7 @@
         <div data-role="navbar" class="custom-navbar">
             <ul>
                 <li><a  href="#pageone" data-transition="none" id="pagetwoA">供应商A</a></li>
-                <li><a  href="#pagetwo" data-transition="none" id="pagetwoB" class="ui-btn-active" data-direction="reverse">供应商B</a></li>
+                <li><a  href="#pagetwo" data-transition="none" id="pagetwoB" class="ui-btn-active ui-btn-active-b" data-direction="reverse">供应商B</a></li>
             </ul>
         </div>
         </div>
