@@ -4,7 +4,7 @@
         <param name="android-package" value="org.apache.cordova.whitelist.WhitelistPlugin" />
         <param name="onload" value="true" />
     </feature>
-    <name>CCB</name>
+    <name>报价比对</name>
     <description>
        建设银行供应商报价比对计算器
     </description>

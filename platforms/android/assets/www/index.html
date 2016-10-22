@@ -17,7 +17,7 @@
     specific language governing permissions and limitations
     under the License.
 -->
-<html>
+<html xmlns="http://www.w3.org/1999/html">
     <head>
         <!--
         Customize this policy to fit your own app's needs. For more guidance, see:
@@ -37,9 +37,70 @@
         <!-- 引入 jQuery Mobile 样式 -->
         <link rel="stylesheet" href="css/jquery.mobile-1.4.5.min.css">
 
+
+        <!--IOS Icon-->
+
+        <link rel="apple-touch-icon" href="img/ccb-logo.png" />
+        <link rel="apple-touch-icon" sizes="72x72" href="img/ccb-logo.png" />
+        <link rel="apple-touch-icon" sizes="114x114" href="img/ccb-logo.png" />
         <style rel="stylesheet">
             [data-role=page]{height: 100% !important; position:relative !important;}
-            [data-role=footer]{bottom:0; position:absolute !important; top: auto !important; width:100%;}
+            [data-role=footer]{bottom:0; position:fixed !important; top: auto !important;width: 100%}
+
+            .custom-navbar ul li a.ui-btn-active {
+                background: linear-gradient(#5393C5, #6FACD5) repeat scroll 0 0 #5393C5 !important;
+                background: #67497a; /* Old browsers */
+                background: linear-gradient(#5393C5, #6FACD5) repeat scroll 0 0 #5393C5 !important; /* FF3.6+ */
+                background: -webkit-linear-gradient(#5393C5, #6FACD5) repeat scroll 0 0 #5393C5 !important; /* Chrome10+,Safari5.1+ */
+                background: -o-linear-gradient(#5393C5, #6FACD5) repeat scroll 0 0 #5393C5 !important; /* Opera 11.10+ */
+                background: -ms-linear-gradient(#5393C5, #6FACD5) repeat scroll 0 0 #5393C5 !important; /* IE10+ */
+                filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#5393C5', endColorstr='#6FACD5',GradientType=0 ); /* IE6-9 */
+            }
+
+
+             .custom-navbar ul li a.ui-btn-active-b {
+                background: linear-gradient(#5393C5, #6FACD5) repeat scroll 0 0 #5393C5 !important;
+                background: #67497a; /* Old browsers */
+                background: linear-gradient(#5393C5, #6FACD5) repeat scroll 0 0 #5393C5 !important; /* FF3.6+ */
+                background: -webkit-linear-gradient(#5393C5, #6FACD5) repeat scroll 0 0 #5393C5 !important; /* Chrome10+,Safari5.1+ */
+                background: -o-linear-gradient(#5393C5, #6FACD5) repeat scroll 0 0 #5393C5 !important; /* Opera 11.10+ */
+                background: -ms-linear-gradient(#5393C5, #6FACD5) repeat scroll 0 0 #5393C5 !important; /* IE10+ */
+                filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#5393C5', endColorstr='#6FACD5',GradientType=0 ); /* IE6-9 */
+            }
+
+
+            .ui-input-btn {
+                color: #ffffff;
+            }
+
+
+            .ui-input-btn input {
+                position: absolute;
+                top: 0;
+                left: 0;
+                width: 100%;
+                height: 100%;
+                padding: 0;
+                border: 0;
+                outline: 0;
+                color: #fff;
+                -webkit-border-radius: inherit;
+                border-radius: inherit;
+                -webkit-appearance: none;
+                -moz-appearance: none;
+                cursor: pointer;
+                background: #176AAF;
+                background: rgba(23,106,175,1);
+                filter: Alpha(Opacity=0);
+                opacity: .8;
+                font-size: 1px;
+                text-indent: -9999px;
+                z-index: 2;
+
+            }
+
+
+
         </style>
         <!-- 引入 jQuery 库 -->
         <script src="js/jquery-1.11.1.min.js"></script>
@@ -52,12 +113,14 @@
     <body>
 
     <div data-role="page" id="pageone">
-        <div data-role="header">
-            <h1>供应商报价比对计算器</h1>
-            <div data-role="navbar">
+        <div data-role="header" style="text-align:center">
+            <br>
+            <img src="img/ccb-logo.png" style="width: 2em;height: 2em; vertical-align:text-top;"/>
+            <h1 style="font-size:1.3em">供应商报价比对</h1>
+            <div data-role="navbar" class="custom-navbar">
                 <ul>
-                    <li><a href="#pageone" data-transition="none">供应商A</a></li>
-                    <li><a href="#pagetwo" data-transition="none" data-direction="reverse">供应商B</a></li>
+                    <li><a  href="#pageone" data-transition="none" class="ui-btn-active ui-btn-active-b" id="pageoneA">供应商A</a></li>
+                    <li><a  href="#pagetwo" data-transition="none" data-direction="reverse" id="pageoneB">供应商B</a></li>
                 </ul>
             </div>
         </div>
@@ -71,8 +134,8 @@
                             <option value=1>进项转出</option>
                             <option value=2>视同销售</option>
                         </select>
-                        <label for="supplierA" >供应商:</label>
-                        <input type="text" required="true" value="供应商A" id="supplierA" readonly >
+                        <!--<label for="supplierA" >供应商:</label>-->
+                        <!--<input type="text" required="true" value="供应商A" id="supplierA" disabled >-->
                         <label for="taxTypeA" >提供发票性质:</label>
                         <select class="form-control"  required id="taxTypeA">
                             <option value="clean">请选择</option>
@@ -100,24 +163,26 @@
                         <label for="priceA" >报价:</label>
                         <input type="text" id="priceA" placeholder="请输入" required="true">
                         <br>
-                        <input type="button" id="calcone" value="计算"/>
+                        <input type="button" id="calcone" value="计算" disabled="disabled"/>
                     </div>
                 </form>
 
         </div>
 
         <div data-role="footer">
-            <h1>建设银行版权所有</h1>
+            <h1>建设银行云南省分行营业部版权所有</h1>
         </div>
     </div>
 
     <div data-role="page" id="pagetwo">
-        <div data-role="header">
-        <h1>供应商报价比对计算器</h1>
-        <div data-role="navbar">
+        <div data-role="header" style="text-align:center">
+         <br>
+            <img src="img/ccb-logo.png" style="width: 2em;height: 2em; vertical-align:text-top;"/>
+            <h1 style="font-size:1.3em">供应商报价比对</h1>
+        <div data-role="navbar" class="custom-navbar">
             <ul>
-                <li><a href="#pageone" data-transition="none">供应商A</a></li>
-                <li><a href="#pagetwo" data-transition="none" data-direction="reverse">供应商B</a></li>
+                <li><a  href="#pageone" data-transition="none" id="pagetwoA">供应商A</a></li>
+                <li><a  href="#pagetwo" data-transition="none" id="pagetwoB" class="ui-btn-active ui-btn-active-b" data-direction="reverse">供应商B</a></li>
             </ul>
         </div>
         </div>
@@ -131,8 +196,8 @@
                         <option value=1>进项转出</option>
                         <option value=2>视同销售</option>
                     </select>
-                    <label for="supplierA" >供应商:</label>
-                    <input type="text" required="true" value="供应商B" id="supplierB" readonly >
+                    <!--<label for="supplierB" >供应商:</label>-->
+                    <!--<input type="text" required="true" value="供应商B" id="supplierB" disabled >-->
                     <label for="taxTypeA" >提供发票性质:</label>
                     <select class="form-control"  required id="taxTypeB">
                         <option value="clean">请选择</option>
@@ -160,7 +225,7 @@
                     <label for="priceA" >报价:</label>
                     <input type="text" id="priceB" placeholder="请输入" required="true">
                     <br>
-                    <input type="button" id="calctwo" value="计算"/>
+                    <input type="button" id="calctwo" value="计算" disabled="disabled"/>
                 </div>
             </form>
             <!--<a href="#pageone" data-transition="fade" data-direction="reverse">淡入第一个页面(reversed)</a>-->
@@ -168,14 +233,14 @@
         </div>
 
         <div data-role="footer">
-            <h1>建设银行版权所有</h1>
+            <h1>建设银行云南省分行营业部版权所有</h1>
         </div>
     </div>
 
 
     <div data-role="page" id="pageresult">
         <div data-role="header">
-            <h1>供应商报价比对计算器</h1>
+            <h1><img src="img/ccb-logo.png" style="width: 1.5em;height: 1.5em;vertical-align:middle;"/>&nbsp;供应商报价比对</h1>
         </div>
 
         <div data-role="main" class="ui-content">
@@ -196,9 +261,10 @@
         </div>
 
         <div data-role="footer">
-            <h1>建设银行版权所有</h1>
+            <h1>建设银行云南省分行营业部版权所有</h1>
         </div>
     </div>
+
     <script src="js/calc.js"></script>
     </body>
 </html>
